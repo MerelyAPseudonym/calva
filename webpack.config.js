@@ -16,12 +16,15 @@ const CALVA_MAIN = {
     devtoolModuleFilenameTemplate: '../[resource-path]',
   },
   devtool: 'source-map',
-  externals: {
-    // the vscode-module is created on-the-fly and must be excluded.
-    // Add other modules that cannot be webpack'ed,
-    // 📖 -> https://webpack.js.org/configuration/externals/
-    vscode: 'commonjs vscode'
-  },
+  externals: [
+    {
+      // the vscode-module is created on-the-fly and must be excluded.
+      // Add other modules that cannot be webpack'ed,
+      // 📖 -> https://webpack.js.org/configuration/externals/
+      vscode: 'commonjs vscode',
+    },
+    /\/state(\.js)?$/
+  ],
   resolve: {
     // support reading TypeScript and JavaScript files,
     // 📖 -> https://github.com/TypeStrong/ts-loader

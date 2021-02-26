@@ -16,4 +16,3 @@
 !clojure-lsp.jar
 !deps.clj.jar
 !bundled/**
-!node_modules
