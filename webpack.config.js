@@ -22,8 +22,7 @@ const CALVA_MAIN = {
       // Add other modules that cannot be webpack'ed,
       // 📖 -> https://webpack.js.org/configuration/externals/
       vscode: 'commonjs vscode',
-    },
-    /\/state(\.js)?$/
+    }
   ],
   resolve: {
     // support reading TypeScript and JavaScript files,
