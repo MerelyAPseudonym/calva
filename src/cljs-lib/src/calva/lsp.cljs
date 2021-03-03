@@ -4,7 +4,8 @@
             ["path" :as path]
             [cljs.core.async :refer [go]]
             [cljs.core.async.interop :refer-macros [<p!]]
-            [clojure.string :as str]))
+            [clojure.string :as str]
+            #_["../config.js" :as config2]))
 
 (def state (js/require "../state.js"))
 (def config (js/require "../config.js"))
@@ -215,3 +216,7 @@
   (.. client
       (sendRequest "textDocument/documentSymbol"
                    (clj->js {:textDocument {:uri uri}}))))
+
+(comment
+  (.. config -default -REPL_FILE_EXT)
+  (.. config2 -default -REPL_FILE_EXT))

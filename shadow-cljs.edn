@@ -24,6 +24,16 @@
                              :getDocumentSymbols calva.lsp/get-document-symbols
                              :LSP_CLIENT_KEY calva.lsp/client-key}
                  :output-to "out/cljs-lib/cljs-lib.js"}
+                :calva-module
+                {:target    :npm-module
+                 :entries [calva.fmt.formatter
+                           calva.fmt.inferer
+                           calva.js-utils
+                           calva.pprint.printer
+                           calva.parse
+                           calva.lsp
+                           calva.state]
+                 :output-dir "node_modules/calva-module"}
                 :test
                 {:target    :node-test
                  :output-to "out/cljs-lib/test/cljs-lib-tests.js"
