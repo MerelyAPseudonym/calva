@@ -1,6 +1,6 @@
 (ns calva.state)
 
-(defonce state (atom {}))
+(defonce ^:private state (atom {}))
 
 (defn set-state-value! [key value]
   (swap! state assoc key value))
