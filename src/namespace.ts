@@ -2,12 +2,12 @@ import * as vscode from 'vscode';
 import * as _ from 'lodash';
 import * as state from './state';
 import { NReplSession } from './nrepl';
-const { parseForms } = require('../out/cljs-lib/cljs-lib');
+const { parseForms, getStateValue } = require('../out/cljs-lib/cljs-lib');
 import * as docMirror from './doc-mirror/index';
 import { LispTokenCursor } from './cursor-doc/token-cursor';
 import { Token } from './cursor-doc/clojure-lexer';
-import * as outputWindow from './results-output/results-doc'
-import * as utilities from './utilities'
+import * as outputWindow from './results-output/results-doc';
+import * as utilities from './utilities';
 
 export function getNamespace(doc: vscode.TextDocument) {
     if (outputWindow.isResultsDoc(doc)) {
@@ -110,6 +110,9 @@ export function updateREPLSessionType() {
     let current = state.deref(),
         doc = utilities.getDocument({}),
         fileType = utilities.getFileType(doc);
+
+    const forms = parseForms(doc.getText());
+    console.log('hello from namespace.ts:', getStateValue('hello'));
 
     if (current.get('connected')) {
         let sessionType: string;

@@ -5,6 +5,7 @@ import * as state from './state';
 import * as util from './utilities'
 import config from './config';
 import { provideClojureDefinition } from './providers/definition';
+import { getStateValue } from '../out/cljs-lib/cljs-lib';
 
 const LSP_CLIENT_KEY = 'lspClient';
 
@@ -53,6 +54,7 @@ function createClient(jarPath: string): LanguageClient {
                 return null;
             },
             provideHover(document, position, token, next) {
+                console.log('value of hello:', getStateValue('hello'));
                 if (util.getConnectedState()) {
                     return null;
                 } else {
